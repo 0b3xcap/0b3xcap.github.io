@@ -41,8 +41,26 @@
       bottom: 20px;
       right: 20px;
       width: 48px;
-      height: auto;
-      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+      height: 48px;
+      display: block;
+      animation: pulse 2.5s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .corner-symbol:hover {
+      transform: scale(1.08);
+    }
+
+    .corner-symbol polygon {
+      fill: none;
+      stroke: white;
+      stroke-width: 3;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); opacity: 1; }
+      50%  { transform: scale(1.08); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -51,6 +69,9 @@
     <h1>Protocol 0b3x Initiated</h1>
     <p>Standby for environmental sync...</p>
   </div>
-  <img src="0b3xcapsymbol_cleanW.png" alt="Symbol" class="corner-symbol" />
+
+  <svg class="corner-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="50,15 90,85 10,85" />
+  </svg>
 </body>
 </html>

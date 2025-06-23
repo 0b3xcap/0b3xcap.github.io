@@ -3,48 +3,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>0b3x</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
       background-color: #000;
       color: #fff;
       font-family: monospace;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      height: 100%;
+      width: 100%;
       overflow: hidden;
-      position: relative;
     }
 
-    h1, p {
-      margin: 0;
-      padding: 0;
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 5vw;
       margin-bottom: 10px;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 4vw;
       opacity: 0.8;
     }
 
     .corner-symbol {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      width: 48px;
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      width: 12vw;
+      max-width: 48px;
       height: auto;
       animation: pulse 2.5s infinite;
       transition: transform 0.3s ease;
-      
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+      z-index: 10;
     }
 
     @keyframes pulse {
@@ -55,12 +61,9 @@
   </style>
 </head>
 <body>
-  <div>
-    <h1>Protocol 0b3x Initiated</h1>
-    <p>Standby for environmental sync...</p>
-  </div>
+  <h1>Protocol 0b3x Initiated</h1>
+  <p>Standby for environmental sync...</p>
 
-  <!-- 🔻 PNG logo, animated -->
   <img src="0b3xcapinvertdark.png" alt="0b3x Symbol" class="corner-symbol" />
 </body>
 </html>

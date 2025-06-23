@@ -1,86 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>0B3XCAP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>0b3xcap</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #d0d0d0;
-      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
+      flex-direction: column;
       text-align: center;
     }
-    .center {
-      max-width: 500px;
+
+    h1 {
+      font-size: 2rem;
+      animation: pulse 2s infinite;
+      letter-spacing: 0.05em;
     }
-    .glitch {
-      font-size: 1.5rem;
-      letter-spacing: 0.1em;
+
+    .corner-symbol {
+      position: fixed;
+      bottom: 5vh;
+      right: 5vw;
+      width: 100px;
+      opacity: 0.75;
+      animation: pulse 2s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.75; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 0.75; transform: scale(1); }
+    }
+
+    p {
+      font-size: 1rem;
+      margin-top: 1em;
       opacity: 0.8;
     }
   </style>
 </head>
 <body>
-  <div class="center">
-    <div class="glitch">Protocol 0B3X Initiated</div>
-    <p>Standby for environmental sync...</p>
-  </div>
-  <!-- INSTALL SYMBOL PROMPT -->
-<style>
-  #installPrompt {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
-    background-image: url('your-symbol-path.svg'); /* Replace with uploaded symbol path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: pulse 2s infinite;
-    cursor: pointer;
-    z-index: 9999;
-    filter: drop-shadow(0 0 4px white); /* Prevent triangle from disappearing on black */
-  }
-
-  #installPrompt:hover::after {
-    content: "Hold to calibrate...";
-    position: absolute;
-    right: 60px;
-    bottom: 6px;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-family: monospace;
-    white-space: nowrap;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-</style>
-
-<div id="installPrompt" title="Hold to calibrate..."></div>
-
-<script>
-  document.getElementById('installPrompt').addEventListener('click', () => {
-    alert(`To sync this protocol:
-
-1. Tap the share icon in your browser.
-2. Scroll down.
-3. Tap "Add to Home Screen."
-
-This site behaves differently once embedded.`)
-  });
-</script>
+  <h1>Protocol 0b3x Initiated</h1>
+  <p>Standby for environmental sync…</p>
+  <img src="0b3xcapsymbol.jpg" alt="Symbol" class="corner-symbol" />
 </body>
 </html>

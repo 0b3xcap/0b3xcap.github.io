@@ -52,6 +52,10 @@
       z-index: 10;
     }
 
+    .corner-symbol:hover {
+      transform: scale(1.05);
+    }
+
     @keyframes pulse {
       0%   { transform: scale(1); opacity: 1; }
       50%  { transform: scale(1.1); opacity: 0.75; }
@@ -63,6 +67,27 @@
   <h1>Protocol 0b3x Initiated</h1>
   <p>Standby for environmental sync...</p>
 
-  <img src="0b3xcapinvertdark.jpg" alt="0b3x Symbol" class="corner-symbol" />
+  <img src="0b3xcapinvertdark.jpg" alt="0b3x Symbol" class="corner-symbol" id="glyph" />
+
+  <script>
+    const glyph = document.getElementById('glyph');
+    let holdTimer;
+
+    glyph.addEventListener('mousedown', () => {
+      holdTimer = setTimeout(triggerSync, 800);
+    });
+    glyph.addEventListener('mouseup', () => clearTimeout(holdTimer));
+
+    glyph.addEventListener('touchstart', () => {
+      holdTimer = setTimeout(triggerSync, 800);
+    });
+    glyph.addEventListener('touchend', () => clearTimeout(holdTimer));
+
+    glyph.addEventListener('click', triggerSync); // fallback tap
+
+    function triggerSync() {
+      alert("Hold calibrated.\n\nLayer 1: device interface alignment required.");
+    }
+  </script>
 </body>
 </html>

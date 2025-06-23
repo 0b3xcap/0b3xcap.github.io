@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0b3xcap</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #000;
-      color: #0f0;
-      font-family: 'Courier New', Courier, monospace;
+      color: #fff;
+      font-family: sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      overflow: hidden;
       flex-direction: column;
-      text-align: center;
     }
 
-    h1 {
-      font-size: 2rem;
-      animation: pulse 2s infinite;
-      letter-spacing: 0.05em;
+    .symbol {
+      position: relative;
+      width: 160px;
+      height: auto;
+      animation: pulse 2.5s ease-in-out infinite;
     }
 
-    .corner-symbol {
-      position: fixed;
-      bottom: 5vh;
-      right: 5vw;
-      width: 100px;
-      opacity: 0.75;
-      animation: pulse 2s infinite;
-      pointer-events: none;
+    .symbol::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.2), transparent 70%);
+      border-radius: 50%;
+      filter: blur(12px);
+      z-index: -1;
     }
 
     @keyframes pulse {
-      0% { opacity: 0.75; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
-      100% { opacity: 0.75; transform: scale(1); }
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.03);
+        opacity: 0.92;
+      }
     }
 
-    p {
-      font-size: 1rem;
-      margin-top: 1em;
-      opacity: 0.8;
+    .hint {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: #888;
+      opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
     }
   </style>
 </head>
 <body>
-  <h1>Protocol 0b3x Initiated</h1>
-  <p>Standby for environmental sync…</p>
-  <img src="0b3xcapsymbol.jpg" alt="Symbol" class="corner-symbol" />
+  <img src="0b3xcapsymbol.png" alt="0b3x Symbol" class="symbol">
+  <div class="hint">Hold to calibrate...</div>
 </body>
 </html>

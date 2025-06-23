@@ -3,54 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Protocol 0b3x</title>
+  <title>0b3x</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: black;
-      color: white;
+      background-color: #000;
+      color: #fff;
       font-family: monospace;
-      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
       position: relative;
     }
 
-
-      <style>
-  .corner-symbol {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: auto;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
-    animation: subtlePulse 5s ease-in-out infinite;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  .corner-symbol:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 12px rgba(180, 130, 255, 0.4));
-  }
-
-  @keyframes subtlePulse {
-    0%, 100% {
-      transform: scale(1);
-      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
+    h1, p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
-    50% {
-      transform: scale(1.02);
-      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
-  }
-</style>
 
-<!-- Place this near the end of body -->
-<img src="0b3xcapsymbol_cleanW.png" alt="Symbol" class="corner-symbol" />
+    p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
 
+    .corner-symbol {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: auto;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
+      animation: symbolPulse 6s ease-in-out infinite;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .corner-symbol:hover {
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 12px rgba(200, 150, 255, 0.35));
+    }
+
+    @keyframes symbolPulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.15));
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        transform: scale(1.02);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Protocol 0b3x Initiated</h1>
+    <p>Standby for environmental sync...</p>
+  </div>
+  <img src="0b3xcapsymbol_cleanW.png" alt="Symbol" class="corner-symbol" />
 </body>
 </html>
